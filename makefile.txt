@@ -1,0 +1,27 @@
+# Определение цели по умолчанию
+all: collector
+
+# Правило для создания исполняемого файла
+collector: work.o interactions.o motion_control.o other_func.o wise_code.o
+	gcc -o collector work.o interactions.o motion_control.o other_func.o wise_code.o
+
+# Правила для создания объектных файлов из исходных файлов
+work.o:
+	gcc -c -o work.o work.c
+
+interactions.o:
+	gcc -c -o interactions.o interactions.c
+
+motion_control.o:
+	gcc -c -o motion_control.o motion_control.c
+
+other_func.o:
+	gcc -c -o other_func.o other_func.c
+
+wise_code.o:
+	gcc -c -o wise_code.o wise_code.c
+
+# Правило для очистки созданных файлов
+clean:
+	rm *.o
+	rm collector
